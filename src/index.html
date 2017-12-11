@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title><%= json.project.seo_title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="__sync_contentCategory" content="meterA">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:600i" rel="stylesheet">
+
+    <%= !json.project.embedded ? t.include("partials/_paywall.html") : t.include("partials/_embedframe.html") %>
+
+    <%= t.include("partials/_head.html") %>
+
+  </head>
+
+  <%= !json.project.embedded ? "<body>" : "<body is='responsive-body'>" %>
+
+    <% json.doctor_jokes.text.forEach(function(d,didx){ %>
+      <% if (d.type == "text") { %>
+        <p><%=d.value %></p>
+      <% } else if (d.type == "conversation") { %>
+        <div class="conversation">
+          <% var conversationList = d.value; %>
+          <% conversationList.forEach(function(blurb, blurbIDX){ %>
+            <% console.log(blurb) %>
+            <% if (blurbIDX % 2) { %>
+              <div class="bubble left"><%=blurb.Person%></div>
+            <% } else { %>
+              <div class="bubble right"><%=blurb.Person%></div>
+            <% } %>
+          <% }); %>
+        </div>
+      <% } else if (d.type == "pullquote") { %>
+        <div class='quote'><div class='huge-quote'>“</div><%=d.value[0].Quote %><span class='small-quote'> ”</span></div>
+      <% } %>
+    <% }) %>
+
+    <script src="app.js" async></script>
+    <%= t.include("partials/_helloSFC.html") %>
+
+  </body>
+</html>

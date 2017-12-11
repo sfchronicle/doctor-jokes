@@ -1,0 +1,160 @@
+.quote {
+  padding: 20px;
+  font-size: 30px;
+  font-style: italic;
+  position: relative;
+  max-width: 900px;
+  margin: 50px auto;
+  padding-left: 100px;
+  font-size: 35px;
+  background: lighten(@light-gray,17%);
+  // font-family: @med-graphics;
+  // color: @dark-gray;
+  // color: @dark-gray;
+  color: #262626;
+  font-family: 'Cormorant Garamond', serif;
+  line-height: 1.2;
+
+  @media @mobile {
+    padding: 20px;
+  }
+  .huge-quote {
+    position: absolute;
+    top: -20px;
+    left: 10px;
+    line-height:1;
+    // font-family: @body;
+    font-size: 200px;
+    color: darken(@red,10%);
+    height: 80px;
+    width: 120px;
+
+    @media @mobile {
+      left: 10px;
+      top:10px;
+      font-size: 100px;
+    }
+  }
+  .small-quote {
+    // font-family: @body;
+    color: darken(@red,10%);
+  }
+}
+
+.conversation {
+  max-width: 400px;
+  margin: 50px auto 70px auto;
+  font-family: 'Cormorant Garamond', serif;
+  line-height: 1.2;
+  font-size: 22px;
+  // height: 50px;
+  .bubble {
+    position: relative;
+    width: 50%;
+    padding: 10px;
+    border: 2px solid @red;
+    background: lighten(@light-gray,17%);
+    border-radius: 10px;
+    &.right {
+      // width: 80%;
+      margin-left: 50%;
+      text-align: right;
+    }
+    &.left {
+      margin-left: 0;
+      text-align: left;
+    }
+  }
+  /* css3 */
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+}
+
+/* creates larger curve */
+.bubble.right:before {
+  content:"";
+  position:absolute;
+  z-index:10;
+  bottom:-22px;
+  left:50px;
+  width:30px;
+  height:20px;
+  border-style:solid;
+  border-width:0 2px 2px 0;
+  border-color:@red;
+  background: white;
+  background: lighten(@light-gray,17%);
+  /* css3 */
+  -webkit-border-bottom-right-radius:80px 50px;
+  -moz-border-radius-bottomright:80px 50px;
+  border-bottom-right-radius:80px 50px;
+  /* reduce the damage in FF3.0 */
+  display:block;
+}
+
+/* creates smaller curve */
+.bubble.right:after {
+  content:"";
+  position:absolute;
+  z-index:10;
+  bottom:-22px;
+  left:50px;
+  width:10px;
+  height:18px;
+  border-style:solid;
+  border-width:2px 2px 2px 0;
+  border-color: @red;
+  background:white;
+  // background: lighten(@light-gray,17%);
+  /* css3 */
+  -webkit-border-bottom-right-radius:40px 50px;
+  -moz-border-radius-bottomright:40px 50px;
+  border-bottom-right-radius:40px 50px;
+  /* reduce the damage in FF3.0 */
+  display:block;
+}
+
+/* creates larger curve */
+.bubble.left:before {
+  content:"";
+  position:absolute;
+  z-index:10;
+  bottom:-22px;
+  right:50px;
+  width:30px;
+  height:20px;
+  border-style:solid;
+  border-width:0 0 2px 2px;
+  border-color:@red;
+  background: white;
+  background: lighten(@light-gray,17%);
+  /* css3 */
+  -webkit-border-bottom-left-radius:80px 50px;
+  -moz-border-radius-bottomleft:80px 50px;
+  border-bottom-left-radius:80px 50px;
+  /* reduce the damage in FF3.0 */
+  display:block;
+}
+
+/* creates smaller curve */
+.bubble.left:after {
+  content:"";
+  position:absolute;
+  z-index:10;
+  bottom:-22px;
+  right:50px;
+  width:10px;
+  height:18px;
+  border-style:solid;
+  border-width:2px 0 2px 2px;
+  border-color: @red;
+  background: white;
+  // background: lighten(@light-gray,17%);
+  /* css3 */
+  -webkit-border-bottom-left-radius:40px 50px;
+  -moz-border-radius-bottomleft:40px 50px;
+  border-bottom-left-radius:40px 50px;
+  /* reduce the damage in FF3.0 */
+  display:block;
+}
