@@ -24,16 +24,15 @@
         <div class="conversation">
           <% var conversationList = d.value; %>
           <% conversationList.forEach(function(blurb, blurbIDX){ %>
-            <% console.log(blurb) %>
             <% if (blurbIDX % 2) { %>
-              <div class="bubble left"><%=blurb.Person%></div>
-            <% } else { %>
               <div class="bubble right"><%=blurb.Person%></div>
+            <% } else { %>
+              <div class="bubble left"><%=blurb.Person%></div>
             <% } %>
           <% }); %>
         </div>
       <% } else if (d.type == "pullquote") { %>
-        <div class='quote'><div class='huge-quote'>“</div><%=d.value[0].Quote %><span class='small-quote'> ”</span></div>
+        <div class='quote'><div class='huge-quote'>“</div><span class="inside-quote"><%=d.value[0].Quote %></span><span class='small-quote'> ”</span></div>
       <% } %>
     <% }) %>
 
